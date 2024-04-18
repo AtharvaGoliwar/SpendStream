@@ -7,7 +7,7 @@ export default function IncomeSpendingCard() {
   let style = {
     display: "flex",
     margin: "1rem",
-    width: "70%",
+    // width: "70%",
     justifyContent: "space-between",
   };
   let style1 = {

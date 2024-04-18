@@ -31,7 +31,7 @@ export default function Assets() {
     fontWeight: "500",
   };
   let style5 = {
-    width: "35%",
+    width: "30%",
     height: "40%",
     marginTop: "1rem",
   };

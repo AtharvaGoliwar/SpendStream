@@ -4,9 +4,10 @@ import data from "../data/data.json";
 export default function PieChart() {
   let style = {
     margin: "1rem",
+    // paddingLeft: "4rem",
   };
   return (
-    <div style={style}>
+    <div className="dabba" style={style}>
       <Doughnut
         data={{
           labels: data.map((data) => data.label),

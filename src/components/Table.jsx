@@ -11,27 +11,30 @@ import "./Table.css";
 
 export default function Table() {
   const style = {
-    width: "80%",
-    // height: "85%",
+    // width: "80rem",
+    // height: "80rem",
     border: "2px solid #14d314",
     borderRadius: 20,
     marginTop: "8%",
-    marginLeft: "auto",
-    marginRight: "auto",
+    // marginLeft: "auto",
+    // marginRight: "auto",
     boxShadow: "0px 5px 10px grey",
     backgroundColor: "#f9f9f9",
     display: "flex",
     // flexWrap: "wrap",
     gap: "10%",
+    marginLeft: "1rem",
+    marginRight: "1rem",
+    justifyContent: "flex-start",
   };
   let style1 = {
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
   };
   return (
     <>
       <div className="table" style={style}>
-        <div>
+        <div className="left-div" style={{ width: "90%" }}>
           <div className="abc" style={style1}>
             <Card />
             <Assets />

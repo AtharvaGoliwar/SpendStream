@@ -3,7 +3,7 @@
     background-color: #04AA6D;
     color: white;
     padding:14px;
-    font-size: 16px;
+    font-size: 12px;
     border: none;
     /* width: 70%; */
     /* height: 50%; */
@@ -56,7 +56,7 @@
     /* width: 100%; */
     width: 60%;
     margin: 5px;
-    font-size: 10px;
+    font-size: 14px;
     padding: 7px;
     background-color: white;
     border: 1px solid gray;
@@ -67,8 +67,9 @@
 
   #input1{
         /* width: 100%; */
+        /* width: 60%; */
         margin: 5px;
-        font-size: 10px;
+        font-size: 14px;
         padding: 7px;
         background-color: white;
         border: none;
@@ -89,8 +90,30 @@
     
   }
 
+  img:hover{
+    cursor: pointer;
+  }
+
   .inputdiv{
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  a:hover{
+    cursor: pointer;
+  }
+
+  @media (max-width:600px){
+    #input1{
+      width: 60%;
+      font-size: 10px;
+    }
+    #input{
+      width: 30%;
+      font-size: 10px;
+    }
+    .dropdown{
+      font-size: 10px;
+    }
   }

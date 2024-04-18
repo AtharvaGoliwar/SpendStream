@@ -3,7 +3,7 @@ import Box from "./Box";
 
 export default function IncomeBar() {
   let style = {
-    width: "80%",
+    // width: "80%",
     // paddingTop: "2rem",
     borderRadius: "20px",
     marginLeft: "1rem",
