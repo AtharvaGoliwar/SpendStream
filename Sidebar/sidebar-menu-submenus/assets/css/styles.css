@@ -163,3 +163,85 @@ a{
 .rotate{
   transform: rotate(180deg);
 }
+
+.mobile_only{
+  display: none;;
+}
+
+@media screen and (max-width: 768px) {
+  .l-navbar{
+    position: fixed;
+    top: 20px;
+    left: 40px;
+    border-radius: 10px;
+    bottom: 50px;
+    height: var(--nav-width);
+    width: 65vh; /* This is causing the issue, it should be changed */
+    background-color: var(--bg-color);
+    color: var(--white-color);
+    padding: 1.5rem 1.5rem 2rem;
+    transition: .5s;
+    z-index: var(--z-fixed);
+  }
+  
+  /*===== NAV =====*/
+  .nav{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .nav__toggle{
+    font-size: 1.25rem;
+    padding: .75rem;
+    cursor: pointer;
+  }
+  .nav__logo{
+    color: var(--white-color);
+    font-weight: 600;
+  }
+  
+  .nav__link{
+    display: inline;
+    row-gap: .75rem;
+    padding: .75rem;
+    color: var(--white-color);
+    border-radius: .5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    transition: .3s;
+    cursor: pointer;
+  }
+  .nav__link:hover{
+    background-color: var(--first-color);
+  }
+  .nav__icon{
+    font-size: 1.25rem;
+  }
+  .nav__name{
+    font-size: var(--small-font-size);
+  }
+  
+  /*Add padding body*/
+  .body-pd{
+    padding: 2rem 0 0 16rem;
+  }
+  
+  /*Active links menu*/
+  .active{
+    background-color: var(--first-color);
+  }
+
+  .desktop_only{
+    display: none;
+  }
+
+  .mobile_only{
+    display: inline; 
+  }
+  .nav__name{
+    display: none;
+  }
+  
+}
