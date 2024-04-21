@@ -75,13 +75,18 @@
     cursor: pointer;
 }
 
+.table{
+    /* width: 70rem; */
+}
+
 @media (max-width:600px) {
     .table{
         display: flex;
         /* flex-wrap: wrap; */
         flex-direction: column;
-        width: 100%;
+        /* width: 50vw; */
         padding-right: 10%;
+        margin-left: 0;
     }
     .filter{
         margin-bottom: 5vh;

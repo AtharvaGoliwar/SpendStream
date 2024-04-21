@@ -6,7 +6,7 @@ import adsense from "../assets/adsense.png";
 
 export default function IncomeSource() {
   let style = {
-    width: "80%",
+    // width: "80%",
     margin: "1rem",
   };
   let style1 = {
@@ -14,12 +14,14 @@ export default function IncomeSource() {
     justifyContent: "space-between",
   };
   let style2 = {
-    fontSize: "14px",
+    fontSize: "16px",
     fontWeight: "600",
+    color: "gold",
   };
   let style3 = {
     fontSize: "12px",
     fontWeight: "200",
+    color: "gold",
   };
   let style4 = {
     // marginBottom: "1rem",
@@ -30,17 +32,18 @@ export default function IncomeSource() {
     display: "flex",
     flex: "1",
     flexWrap: "wrap",
-    width: "100%",
+    // width: "100%",
     columnGap: "5%",
     justifyContent: "space-between",
   };
   let style5 = {
-    color: "gray",
+    color: "white",
     fontSize: "11px",
   };
   let style6 = {
     fontSize: "14px",
     fontWeight: "500",
+    color: "gold",
   };
   let style7 = {
     width: "35%",

@@ -2,27 +2,32 @@ import React, { useState } from "react";
 import "./Input.css";
 import send from "../assets/send.png";
 import records from "../data/records.json";
-export default function Input() {
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+export default function Input({ date, month, year }) {
   let style = {
     // marginTop: "0.5rem",
     border: "1px solid black",
     // height: "7.5%",
-    marginRight: "1rem",
+    // marginRight: "1rem",
     borderRadius: "10px",
-    boxShadow: "0px 5px 10px grey",
-    marginBottom: "1rem",
-    marginLeft: "1rem",
-    width: "100%",
+    boxShadow: "0px 5px 10px #12192c",
+    // marginBottom: "1rem",
+    // marginLeft: "1rem",
+    // width: "100%",
     padding: "0.5rem",
+    // background: "#f9f9f9",
+    background: "aliceblue",
   };
   let style2 = {
-    fontSize: "14px",
+    fontSize: "18px",
     fontWeight: "600",
     marginLeft: "1rem",
+    color: "gold",
   };
   let style3 = {
     marginLeft: "1rem",
-    width: "80%",
+    // width: "80%",
   };
   let style4 = {
     display: "flex",
@@ -52,7 +57,7 @@ export default function Input() {
   const [amtText, setAmt] = useState("");
   const [type, setType] = useState("Type");
   const [category, setCategory] = useState("Category");
-  const [date, setDate] = useState(new Date());
+  // const [date, setDate] = useState(new Date());
   let rec = JSON.parse(localStorage.getItem("records") || "[]");
   console.log(rec);
   const handleChange = (e) => {
@@ -61,6 +66,11 @@ export default function Input() {
   const handleChange1 = (e) => {
     setAmt(e.target.value);
   };
+
+  const showToastMessage = () => {
+    toast.error("Error Notification !");
+  };
+
   const writeData = () => {
     if (
       category === "Category" ||
@@ -68,17 +78,38 @@ export default function Input() {
       descText === "" ||
       amtText === ""
     ) {
+      toast.error("Enter all values to log Transaction");
+
+      console.log("HO gaya");
+    } else if (parseInt(amtText) < 0) {
+      toast.error("Enter positive values");
     } else {
       rec.push({
-        date: date.getDate(),
-        month: date.getMonth() + 1,
-        year: date.getFullYear(),
+        itemNo: rec.length + 1,
+        date: date,
+        month: month + 1,
+        year: year,
         type: category,
         title: descText,
         value: parseInt(amtText),
         InorOut: type === "Income" ? 1 : 0,
       });
+
+      let bal = parseInt(localStorage.getItem("balance"));
+      console.log(bal);
+
+      let balArr = JSON.parse(localStorage.getItem("balanceArray") || "[]");
+
+      type === "Income"
+        ? localStorage.setItem("balance", bal + parseInt(amtText))
+        : // console.log("Hello Add")
+          localStorage.setItem("balance", bal - parseInt(amtText));
+      // console.log("Hello Subtract");
       localStorage.setItem("records", JSON.stringify(rec));
+      console.log(localStorage.getItem("balance"));
+      balArr.push(parseInt(localStorage.getItem("balance")));
+      localStorage.setItem("balanceArray", JSON.stringify(balArr));
+      window.location.reload();
     }
     // records.push({
     //   date: date.getDate(),
@@ -90,7 +121,6 @@ export default function Input() {
     //   InorOut: type === "Income" ? 1 : 0,
     // });
     console.log(JSON.parse(localStorage.getItem("records") || "[]"));
-    window.location.reload();
   };
   return (
     <>
@@ -114,7 +144,7 @@ export default function Input() {
                 <a onClick={() => setCategory("Transportation")}>
                   Transportation
                 </a>
-                <a onClick={() => setCategory("Other")}>Other</a>
+                <a onClick={() => setCategory("Others")}>Others</a>
               </div>
             </div>
           </div>
@@ -134,7 +164,7 @@ export default function Input() {
               type="number"
               name=""
               id="input"
-              placeholder="Enter Amount"
+              placeholder="Amount"
               onChange={handleChange1}
               value={amtText}
             />

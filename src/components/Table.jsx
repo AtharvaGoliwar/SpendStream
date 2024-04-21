@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "./Card";
 import Assets from "./Assets";
 import IncomeBar from "./IncomeBar";
@@ -8,33 +8,99 @@ import PieChart from "./PieChart";
 import Input from "./Input";
 import PrevTransactions from "./PrevTransactions";
 import "./Table.css";
-
+import data from "../data/data.json";
+import Charts from "./Charts";
 export default function Table() {
   const style = {
     // width: "80rem",
     // height: "80rem",
-    border: "2px solid #14d314",
+    // border: "2px solid #14d314",
     borderRadius: 20,
-    marginTop: "8%",
+    // width: "100rem",
+    // marginTop: "8%",
     // marginLeft: "auto",
     // marginRight: "auto",
-    boxShadow: "0px 5px 10px grey",
-    backgroundColor: "#f9f9f9",
+    boxShadow: "0px 5px 10px #12192c",
+    // backgroundColor: "#f9f9f9",
     display: "flex",
     // flexWrap: "wrap",
-    gap: "10%",
-    marginLeft: "1rem",
-    marginRight: "1rem",
+    gap: "5%",
+    // marginLeft: "1rem",
+    // marginRight: "1rem",
     justifyContent: "flex-start",
+    backgroundColor:
+      "linear-gradient(90deg, hsl(104, 28%, 40%) 0%, hsl(58, 28%, 40%) 100%)",
+    padding: "1rem",
+    // minHeight: "170vh",
+    marginBottom: "20vh",
   };
   let style1 = {
     display: "flex",
     justifyContent: "flex-start",
   };
+  const [date, setDate] = useState(new Date());
+  let rec = JSON.parse(localStorage.getItem("records") || "[]");
+  let data = [];
+  let Data = [];
+  localStorage.setItem("total", 0);
+  rec.map((record) =>
+    record.month === date.getMonth() + 1
+      ? record.type === "Food"
+        ? localStorage.setItem(
+            "total",
+            parseInt(localStorage.getItem("total")) + parseInt(record.value)
+          )
+        : ""
+      : ""
+  );
+  data.push(parseInt(localStorage.getItem("total")));
+  localStorage.setItem("total", 0);
+  rec.map((record) =>
+    record.month === date.getMonth() + 1
+      ? record.type === "Shopping"
+        ? localStorage.setItem(
+            "total",
+            parseInt(localStorage.getItem("total")) + parseInt(record.value)
+          )
+        : ""
+      : ""
+  );
+  data.push(parseInt(localStorage.getItem("total")));
+  localStorage.setItem("total", 0);
+  rec.map((record) =>
+    record.month === date.getMonth() + 1
+      ? record.type === "Transportation"
+        ? localStorage.setItem(
+            "total",
+            parseInt(localStorage.getItem("total")) + parseInt(record.value)
+          )
+        : ""
+      : ""
+  );
+  data.push(parseInt(localStorage.getItem("total")));
+  localStorage.setItem("total", 0);
+  rec.map((record) =>
+    record.month === date.getMonth() + 1
+      ? record.type === "Others"
+        ? localStorage.setItem(
+            "total",
+            parseInt(localStorage.getItem("total")) + parseInt(record.value)
+          )
+        : ""
+      : ""
+  );
+  data.push(parseInt(localStorage.getItem("total")));
+  localStorage.setItem("total", 0);
+  Data = [
+    { label: "Food", value: data[0] },
+    { label: "Shopping", value: data[1] },
+    { label: "Transportation", value: data[2] },
+    { label: "Others", value: data[3] },
+  ];
   return (
     <>
       <div className="table" style={style}>
-        <div className="left-div" style={{ width: "90%" }}>
+        <div className="left-div">
           <div className="abc" style={style1}>
             <Card />
             <Assets />
@@ -48,14 +114,34 @@ export default function Table() {
           <div>
             <IncomeSource />
           </div>
-          <Input />
+          <div>
+            <Charts />
+          </div>
         </div>
-        <div>
+        <div className="right-div">
           {/* hello */}
-          <PieChart />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              // background: "beige",
+              background: "aliceblue",
+              padding: "1rem",
+              margin: "1rem",
+              borderRadius: "20px",
+            }}
+          >
+            <PieChart data={Data} />
+          </div>
+
           {/* <CardSlider /> */}
           {/* <CardSliderNew /> */}
           <PrevTransactions />
+          <Input
+            date={date.getDate()}
+            month={date.getMonth()}
+            year={date.getFullYear()}
+          />
         </div>
       </div>
     </>

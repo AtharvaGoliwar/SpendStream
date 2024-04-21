@@ -5,11 +5,14 @@ import { color } from "chart.js/helpers";
 
 export default function TransactionSlide({ filter, cards }) {
   let style = {
-    // width: "70%",
-    border: "2px solid gray",
+    width: "100%",
+    // border: "2px solid gray",
+    border: "2px solid gold",
     borderRadius: "10px",
     overflowY: "scroll",
-    maxHeight: "100vh",
+    maxHeight: "75vh",
+    // scrollbarBackground: "none",
+    scrollbarWidth: "thin",
   };
   // const [total, setTotal] = useState(0);
   const sum = async (val) => {
@@ -48,13 +51,14 @@ export default function TransactionSlide({ filter, cards }) {
   const [pos, setPos] = useState(true);
   return (
     <>
-      <div style={style}>
+      <div className="section" style={style}>
         <div
           style={{
             fontSize: "30px",
             textAlign: "center",
             padding: "1rem",
             fontWeight: "600",
+            color: "gold",
           }}
         >
           Transactions
@@ -73,6 +77,7 @@ export default function TransactionSlide({ filter, cards }) {
               : filter.category === record.type) ? (
               <ExpenseCard
                 data={{
+                  itemNo: record.itemNo,
                   date: record.date,
                   month: record.month,
                   year: record.year,
@@ -242,9 +247,10 @@ export default function TransactionSlide({ filter, cards }) {
             fontSize: "20px",
             textAlign: "end",
             padding: "1rem",
+            color: "white",
           }}
         >
-          Total:{" "}
+          Total :{" "}
           <span
             style={
               parseInt(localStorage.getItem("total")) > 0

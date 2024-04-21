@@ -16,29 +16,43 @@ export default function IncomeBar() {
   };
   let style2 = {
     fontSize: "10px",
-    color: "gray",
+    // color: "gray",
   };
   let style3 = {
-    fontSize: "12px",
+    color: "gold",
+    fontSize: "16px",
   };
   let style4 = {
     fontSize: "14px",
     fontWeight: "600",
-    color: "black",
+    color: "beige",
   };
   let style5 = {
     fontSize: "14px",
-    color: "gray",
+    color: "gold",
     display: "flex",
     alignItems: "center",
   };
   let style6 = {
-    width: "90%",
+    // width: "90%",
     height: "5%",
     backgroundColor: "black",
     borderRadius: "20px",
   };
-
+  let date = new Date();
+  let rec = JSON.parse(localStorage.getItem("records") || "[]");
+  localStorage.setItem("total", 0);
+  let newRec = rec.filter((record) => record.InorOut === 1);
+  newRec.map((record) =>
+    record.month === date.getMonth() + 1
+      ? localStorage.setItem(
+          "total",
+          parseInt(localStorage.getItem("total")) + record.value
+        )
+      : ""
+  );
+  let val = parseInt(localStorage.getItem("total"));
+  localStorage.setItem("total", 0);
   return (
     <>
       <div style={style}>
@@ -46,14 +60,14 @@ export default function IncomeBar() {
           <div style={style1}>
             <div style={style2}>
               <div style={style3}>Income Goal</div>
-              <div>Progress To Month</div>
+              <div style={{ color: "gold" }}>Progress To Month</div>
             </div>
             <div style={style5}>
-              <span style={style4}>Rs 18000 /</span> Rs 25000
+              <span style={style4}>Rs {val} /</span> Rs 100000
             </div>
           </div>
         </div>
-        <Box />
+        <Box x={val} y={100000} />
       </div>
     </>
   );

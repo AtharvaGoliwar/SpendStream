@@ -6,19 +6,19 @@ import records from "../data/records.json";
 import "./FilterSlide.css";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import Input from "./Input";
 // import records from "../data/records.json";
 
 export default function TransactionRecords() {
   const style = {
     // width: "70rem",
     // height: "85%",
-    border: "2px solid #14d314",
     borderRadius: 20,
-    marginTop: "8%",
-    marginLeft: "2rem",
+    // marginTop: "8%",
+    // marginLeft: "2rem",
     marginRight: "auto",
-    boxShadow: "0px 5px 10px grey",
-    backgroundColor: "#f9f9f9",
+    boxShadow: "0px 5px 10px #12192c",
+    backgroundColor: "linear-gradient(90deg,#12192C,#062a6e)",
     display: "flex",
     // justifyContent: "center",
     // flexWrap: "wrap",
@@ -27,10 +27,11 @@ export default function TransactionRecords() {
   };
 
   let style1 = {
-    border: "2px solid gray",
+    // border: "2px solid gray",
+    border: "2px solid gold",
     borderRadius: "15px",
     // width: "25%",
-    padding: "1rem",
+    padding: "2rem",
   };
 
   const [date, setDate] = useState(new Date());
@@ -74,7 +75,12 @@ export default function TransactionRecords() {
       <div className="filter" style={style1}>
         <div
           className="title"
-          style={{ textAlign: "center", fontSize: "30px", fontWeight: "600" }}
+          style={{
+            textAlign: "center",
+            fontSize: "30px",
+            fontWeight: "600",
+            color: "gold",
+          }}
         >
           Search
         </div>
@@ -83,7 +89,10 @@ export default function TransactionRecords() {
           className="Category"
           style={{ fontSize: "16px", position: "relative" }}
         >
-          <div className="title1">Category</div>
+          <div className="title1" style={{ color: "gold" }}>
+            Category
+          </div>
+          <br />
           {/* <input
             className="categoryLabels"
             style={{
@@ -196,7 +205,7 @@ export default function TransactionRecords() {
               alignItems: "center",
             }}
           >
-            <div style={{ fontSize: "16px" }}>Type</div>
+            <div style={{ fontSize: "16px", color: "gold" }}>Type</div>
             <div
               className="clear"
               style={{ fontSize: "10px", color: "gray" }}
@@ -205,12 +214,13 @@ export default function TransactionRecords() {
               Clear
             </div>
           </div>
+          <br />
           <div>
             {type === 0 ? (
               <div
                 className="Expense"
                 style={{
-                  border: "1px solid black",
+                  border: "1px solid gold",
                   width: "30%",
                   fontSize: "18px",
                   borderRadius: "10px",
@@ -230,7 +240,7 @@ export default function TransactionRecords() {
               <div
                 className="Expense"
                 style={{
-                  border: "1px solid black",
+                  border: "1px solid gold",
                   width: "30%",
                   fontSize: "18px",
                   borderRadius: "10px",
@@ -239,6 +249,7 @@ export default function TransactionRecords() {
                   padding: "0.5rem",
                   textAlign: "center",
                   transition: "all 0.3s",
+                  color: "white",
                 }}
                 onClick={() => handleClick(0)}
               >
@@ -267,7 +278,7 @@ export default function TransactionRecords() {
               <div
                 className="Income"
                 style={{
-                  border: "1px solid black",
+                  border: "1px solid gold",
                   width: "30%",
                   fontSize: "18px",
                   borderRadius: "10px",
@@ -277,6 +288,7 @@ export default function TransactionRecords() {
                   textAlign: "center",
                   backgroundColor: "green",
                   color: "white",
+                  transition: "all 0.3s",
                 }}
                 onClick={() => handleClick(1)}
               >
@@ -286,7 +298,7 @@ export default function TransactionRecords() {
               <div
                 className="Income"
                 style={{
-                  border: "1px solid black",
+                  border: "1px solid gold",
                   width: "30%",
                   fontSize: "18px",
                   borderRadius: "10px",
@@ -294,6 +306,8 @@ export default function TransactionRecords() {
                   margin: "auto",
                   padding: "0.5rem",
                   textAlign: "center",
+                  color: "white",
+                  transition: "all 0.3s",
                 }}
                 onClick={() => handleClick(1)}
               >
@@ -305,15 +319,33 @@ export default function TransactionRecords() {
         </div>
         <br />
         <div className="calendar">
-          Calendar
+          <div style={{ color: "gold" }}>Calendar</div>
+          <br />
           <Calendar onChange={onChange} value={date} />
           {console.log(date)}
           {date.toDateString()}
           {date.getMonth()}
         </div>
       </div>
-
-      <TransactionSlide filter={filter} cards={records} />
+      <div>
+        {" "}
+        <div style={{ minHeight: "50vh" }}>
+          <TransactionSlide filter={filter} cards={records} />
+        </div>
+        <div
+          style={{
+            paddingRight: "1rem",
+            marginRight: "1rem",
+            marginTop: "2rem",
+          }}
+        >
+          <Input
+            date={date.getDate()}
+            month={date.getMonth()}
+            year={date.getFullYear()}
+          />
+        </div>
+      </div>
     </div>
   );
 }

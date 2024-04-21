@@ -17,6 +17,8 @@ export default function IncomeSpendingCard() {
     border: "1px solid gray",
     borderRadius: "10px",
     padding: "0.5rem",
+    // background: "#f9f9f9",
+    backgroundColor: "aliceblue",
   };
   let style2 = {
     fontSize: "10px",
@@ -75,6 +77,18 @@ export default function IncomeSpendingCard() {
       },
     },
   };
+  let date = new Date();
+  let rec = JSON.parse(localStorage.getItem("records") || "[]");
+  localStorage.setItem("total", 0);
+  let inc = [];
+  let exp = [];
+  rec.map((record) =>
+    record.month === date.getMonth() + 1
+      ? record.InorOut
+        ? inc.push(record)
+        : exp.push(record)
+      : ""
+  );
   return (
     <>
       <div style={style}>
@@ -82,11 +96,11 @@ export default function IncomeSpendingCard() {
           <div style={style6}>
             <Line
               data={{
-                labels: data.map((data) => data.label),
+                labels: inc.map((data) => data.type),
                 datasets: [
                   {
-                    label: "Revenue",
-                    data: data.map((data) => data.revenue),
+                    label: "Cost",
+                    data: inc.map((data) => data.value),
                     backgroundColor: "#064FF0",
                     borderColor: "#064FF0",
                   },
@@ -97,18 +111,31 @@ export default function IncomeSpendingCard() {
           </div>
           <div>
             <div style={style2}>Income</div>
-            <div style={style3}>Rs 20,000</div>
+            <div style={style3}>
+              {rec.map((record) => {
+                record.month === date.getMonth() + 1
+                  ? record.InorOut
+                    ? localStorage.setItem(
+                        "total",
+                        parseInt(localStorage.getItem("total")) + record.value
+                      )
+                    : ""
+                  : "";
+              })}
+              Rs {localStorage.getItem("total")}
+            </div>
+            {localStorage.setItem("total", 0)}
           </div>
         </div>
         <div style={style1}>
           <div style={style6}>
             <Line
               data={{
-                labels: data.map((data) => data.label),
+                labels: exp.map((data) => data.type),
                 datasets: [
                   {
-                    label: "Revenue",
-                    data: data.map((data) => data.revenue),
+                    label: "Cost",
+                    data: exp.map((data) => data.value),
                     backgroundColor: "#FF0000",
                     borderColor: "#FF0000",
                   },
@@ -119,7 +146,19 @@ export default function IncomeSpendingCard() {
           </div>
           <div>
             <div style={style2}>Spending</div>
-            <div style={style3}>Rs 4,917</div>
+            <div style={style3}>
+              {rec.map((record) => {
+                record.month === date.getMonth() + 1
+                  ? !record.InorOut
+                    ? localStorage.setItem(
+                        "total",
+                        parseInt(localStorage.getItem("total")) + record.value
+                      )
+                    : ""
+                  : "";
+              })}
+              Rs {localStorage.getItem("total")}
+            </div>
           </div>
         </div>
       </div>

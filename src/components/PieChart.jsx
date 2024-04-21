@@ -1,24 +1,26 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
-import data from "../data/data.json";
-export default function PieChart() {
+export default function PieChart({ data }) {
   let style = {
     margin: "1rem",
+    // backgroundColor: "beige",
     // paddingLeft: "4rem",
   };
   return (
     <div className="dabba" style={style}>
+      <div style={{ fontSize: "16px", fontWeight: "600" }}>Balance Graph</div>
+      <hr />
       <Doughnut
         data={{
           labels: data.map((data) => data.label),
           datasets: [
             {
-              data: data.map((data) => data.revenue),
+              data: data.map((data) => data.value),
               backgroundColor: [
-                "red",
+                "gold",
                 "blue",
                 "green",
-                "orange",
+                "red",
                 "gray",
                 "black",
               ],
@@ -26,6 +28,7 @@ export default function PieChart() {
             },
           ],
         }}
+        isResponsive:true
       />
     </div>
   );

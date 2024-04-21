@@ -1,12 +1,12 @@
 import React from "react";
 
-export default function Box() {
+export default function Box({ x, y }) {
   let style = {
     height: "0.5rem",
-    backgroundColor: "black",
+    backgroundColor: "gold",
     borderRadius: "20px",
     marginTop: "0.5rem",
-    width: "90%",
+    width: `${(x / y) * 100}%`,
   };
   return <div style={style}></div>;
 }

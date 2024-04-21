@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import ExpenseCard from "./ExpenseCard";
 import "./PrevTransactions.css";
+import TransactionRecords from "./TransactionRecords";
+import { color } from "chart.js/helpers";
 
 export default function PrevTransactions() {
   let style1 = {
@@ -12,10 +14,13 @@ export default function PrevTransactions() {
   let style2 = {
     fontSize: "14px",
     fontWeight: "600",
+    color: "gold",
   };
   let style3 = {
     fontSize: "12px",
     fontWeight: "200",
+    textDecoration: "none",
+    color: "gold",
   };
   //   let style2 = {
   //     fontSize: "14px",
@@ -30,9 +35,9 @@ export default function PrevTransactions() {
     <>
       <div style={style1}>
         <div style={style2}>Previous Transactions</div>
-        <div className="view" style={style3}>
+        <a href="/transaction-records" className="view" style={style3}>
           View all
-        </div>
+        </a>
       </div>
       <hr style={{ marginRight: "1rem" }} />
       <div style={{ marginBottom: "2rem" }}>
@@ -97,6 +102,7 @@ export default function PrevTransactions() {
             ind >= rec.length - 5 && (
               <ExpenseCard
                 data={{
+                  itemNo: record.itemNo,
                   date: record.date,
                   month: record.month,
                   year: record.year,
