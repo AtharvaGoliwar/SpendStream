@@ -254,7 +254,7 @@ export default function TransactionSlide({ filter, cards }) {
           <span
             style={
               parseInt(localStorage.getItem("total")) > 0
-                ? { color: "green" }
+                ? { color: "gold" }
                 : { color: "red" }
             }
           >

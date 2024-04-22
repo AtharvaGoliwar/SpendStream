@@ -5,6 +5,7 @@ import data from "../data/assets.json";
 import "./AssetsandGoals.css";
 import Box from "./Box";
 import send from "../assets/send.png";
+import { ToastContainer, toast } from "react-toastify";
 export default function AssetsandGoals() {
   let style = {
     // width: "80%",
@@ -92,11 +93,19 @@ export default function AssetsandGoals() {
   };
   const saveAmt = () => {
     // setSave(x);
-    console.log(prevSave);
-    localStorage.setItem("savings", prevSave + parseInt(amtText));
-    console.log(amtText);
-    window.location.reload();
-    localStorage.setItem("curr-month", date.getMonth() + 1);
+    if (descText === "" || amtText === "") {
+      toast.error("Enter all values to log Transaction");
+
+      console.log("HO gaya");
+    } else if (parseInt(amtText) < 0) {
+      toast.error("Enter positive values");
+    } else {
+      console.log(prevSave);
+      localStorage.setItem("savings", prevSave + parseInt(amtText));
+      console.log(amtText);
+      window.location.reload();
+      localStorage.setItem("curr-month", date.getMonth() + 1);
+    }
   };
   date.getMonth() + 1 !== parseInt(localStorage.getItem("curr-month"))
     ? localStorage.setItem("savings", 0)
