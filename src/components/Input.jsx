@@ -72,6 +72,8 @@ export default function Input({ date, month, year }) {
   };
 
   const writeData = () => {
+    let bal = parseInt(localStorage.getItem("balance"));
+    console.log(bal);
     if (
       category === "Category" ||
       type === "Type" ||
@@ -83,6 +85,8 @@ export default function Input({ date, month, year }) {
       console.log("HO gaya");
     } else if (parseInt(amtText) < 0) {
       toast.error("Enter positive values");
+    } else if (type === "Expense" && bal - parseInt(amtText) < 0) {
+      toast.error("You cannot make more transactions");
     } else {
       rec.push({
         itemNo: rec.length + 1,
@@ -94,9 +98,6 @@ export default function Input({ date, month, year }) {
         value: parseInt(amtText),
         InorOut: type === "Income" ? 1 : 0,
       });
-
-      let bal = parseInt(localStorage.getItem("balance"));
-      console.log(bal);
 
       let balArr = JSON.parse(localStorage.getItem("balanceArray") || "[]");
 
