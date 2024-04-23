@@ -1,5 +1,11 @@
 import { React, useState } from "react";
 import "../sidebar/assets/css/styles.css";
+import logout from "./assets/logout.png";
+import dashboard from "./assets/dashboard.png";
+import asset from "./assets/asset.png";
+import banknotes from "./assets/banknotes.png";
+import person from "./assets/person.png";
+import profile from "./assets/Profile-Male-PNG.png";
 
 export default function Sidebar() {
   //   const [activeSec, setActiveSec] = useState(1);
@@ -26,18 +32,14 @@ export default function Sidebar() {
             </div>
             <a href="#" className="nav_link active desktop_only">
               <div className="user_img">
-                <img
-                  src="/src/assets/Profile-Male-PNG.png"
-                  alt="user-profile"
-                  className="user_img"
-                />
+                <img src={profile} alt="user-profile" className="user_img" />
               </div>
             </a>
 
             <div className="nav__list">
               <a href="#" class="nav__link mobile_only">
                 {/* <ion-icon name="person-outline" class="nav__icon"></ion-icon> */}
-                <img src="/src/assets/person.png" alt className="nav__icon" />
+                <img src={person} alt className="nav__icon" />
               </a>
               {localStorage.getItem("dashboard-item") === "1" ? (
                 <a
@@ -47,11 +49,7 @@ export default function Sidebar() {
                   style={style}
                 >
                   {/* <ion-icon name="home-outline" class="nav__icon"></ion-icon> */}
-                  <img
-                    src="/src/assets/dashboard.png"
-                    alt
-                    className="nav__icon"
-                  />
+                  <img src={dashboard} alt className="nav__icon" />
                   <span className="nav__name">Dashboard</span>
                 </a>
               ) : (
@@ -61,11 +59,7 @@ export default function Sidebar() {
                   onClick={() => handleClick(1)}
                 >
                   {/* <ion-icon name="home-outline" class="nav__icon"></ion-icon> */}
-                  <img
-                    src="/src/assets/dashboard.png"
-                    alt
-                    className="nav__icon"
-                  />
+                  <img src={dashboard} alt className="nav__icon" />
                   <span className="nav__name">Dashboard</span>
                 </a>
               )}
@@ -77,11 +71,7 @@ export default function Sidebar() {
                   style={style}
                 >
                   {/* <ion-icon name="cash-outline" class="nav__icon"></ion-icon> */}
-                  <img
-                    src="/src/assets/banknotes.png"
-                    alt
-                    className="nav__icon"
-                  />
+                  <img src={banknotes} alt className="nav__icon" />
                   <span className="nav__name">Incomes and Expenses</span>
                 </a>
               ) : (
@@ -91,11 +81,7 @@ export default function Sidebar() {
                   onClick={() => handleClick(2)}
                 >
                   {/* <ion-icon name="cash-outline" class="nav__icon"></ion-icon> */}
-                  <img
-                    src="/src/assets/banknotes.png"
-                    alt
-                    className="nav__icon"
-                  />
+                  <img src={banknotes} alt className="nav__icon" />
                   <span className="nav__name">Incomes and Expenses</span>
                 </a>
               )}
@@ -114,7 +100,7 @@ export default function Sidebar() {
                   style={style}
                 >
                   {/* <ion-icon name="cash-outline" class="nav__icon"></ion-icon> */}
-                  <img src="/src/assets/asset.png" alt className="nav__icon" />
+                  <img src={asset} alt className="nav__icon" />
                   <span className="nav__name">Assets and Goals</span>
                 </a>
               ) : (
@@ -124,7 +110,7 @@ export default function Sidebar() {
                   onClick={() => handleClick(3)}
                 >
                   {/* <ion-icon name="cash-outline" class="nav__icon"></ion-icon> */}
-                  <img src="/src/assets/asset.png" alt className="nav__icon" />
+                  <img src={asset} alt className="nav__icon" />
                   <span className="nav__name">Assets and Goals</span>
                 </a>
               )}
@@ -168,7 +154,7 @@ export default function Sidebar() {
               )} */}
               <a href="#" className="nav__link">
                 {/* <ion-icon name="log-out-outline" class="nav__icon"></ion-icon> */}
-                <img src="/src//assets/logout.png" alt className="nav__icon" />
+                <img src={logout} alt className="nav__icon" />
                 <span className="nav__name">Log Out</span>
               </a>
             </div>

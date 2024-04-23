@@ -8,9 +8,9 @@ import TransactionRecords from "./components/TransactionRecords";
 import Assets from "./components/Assets";
 import AssetsandGoals from "./components/AssetsandGoals";
 import Charts from "./components/Charts";
-import Sidebar from "./components/sidebar/Sidebar";
 import Settings from "./components/settings/Settings";
 import { ToastContainer } from "react-toastify";
+import Sidebar from "./components/sidebar/Sidebar";
 
 function App({ filter }) {
   const [count, setCount] = useState(0);
