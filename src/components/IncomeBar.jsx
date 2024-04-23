@@ -68,7 +68,7 @@ export default function IncomeBar() {
             </div>
           </div>
         </div>
-        <Box x={val} y={100000} />
+        <Box x={val} y={parseInt(localStorage.getItem("income-goal"))} />
       </div>
     </>
   );
