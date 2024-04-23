@@ -35,7 +35,10 @@ export default function Sidebar() {
                 <img src={profile} alt="user-profile" className="user_img" />
               </div>
             </a>
-            <div style={{ textAlign: "center", marginTop: "1rem" }}>
+            <div
+              className="username"
+              style={{ textAlign: "center", marginTop: "1rem" }}
+            >
               {localStorage.getItem("username")}
             </div>
             <br />

@@ -179,6 +179,9 @@ a{
 }
 
 @media screen and (max-width: 768px) {
+  .username{
+    display: none;
+  }
   .l-navbar{
     /* position: fixed; */
     top: 10px;
