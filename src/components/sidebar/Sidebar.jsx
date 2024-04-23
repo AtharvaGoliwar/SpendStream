@@ -152,7 +152,10 @@ export default function Sidebar() {
                   <span class="nav__name">Settings</span>
                 </a>
               )} */}
-              <a href="#" className="nav__link">
+              <a
+                href="https://spend-stream-home.vercel.app/"
+                className="nav__link"
+              >
                 {/* <ion-icon name="log-out-outline" class="nav__icon"></ion-icon> */}
                 <img src={logout} alt className="nav__icon" />
                 <span className="nav__name">Log Out</span>
