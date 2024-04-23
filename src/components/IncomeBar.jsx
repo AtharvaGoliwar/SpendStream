@@ -63,7 +63,8 @@ export default function IncomeBar() {
               <div style={{ color: "gold" }}>Progress To Month</div>
             </div>
             <div style={style5}>
-              <span style={style4}>Rs {val} /</span> Rs 100000
+              <span style={style4}>Rs {val} /</span> Rs{" "}
+              {localStorage.getItem("income-goal")}
             </div>
           </div>
         </div>
