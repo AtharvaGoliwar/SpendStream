@@ -15,7 +15,7 @@ export default function Assets() {
     marginRight: "1rem",
     // padding: "1rem",
     paddingTop: "0rem",
-    paddingBottom: "1.5rem",
+    // paddingBottom: "1.5rem",
     fontSize: "12px",
     display: "flex",
     flex: "1",
@@ -49,19 +49,21 @@ export default function Assets() {
         <div style={style2}>
           <div>
             <div style={style3}>Gold</div>
-            <div style={style4}>Rs 5,00,000</div>
+            <div style={style4}>Rs {localStorage.getItem("gold")}</div>
           </div>
           <div>
             <div style={style3}>WareHouse</div>
-            <div style={style4}>Rs 15,00,000</div>
+            <div style={style4}>Rs {localStorage.getItem("ware")}</div>
           </div>
+        </div>
+        <div style={style2}>
           <div>
             <div style={style3}>Stock</div>
-            <div style={style4}>Rs 10,00,000</div>
+            <div style={style4}>Rs {localStorage.getItem("stock")}</div>
           </div>
           <div>
             <div style={style3}>Land</div>
-            <div style={style4}>Rs 30,00,000</div>
+            <div style={style4}>Rs {localStorage.getItem("land")}</div>
           </div>
         </div>
       </div>

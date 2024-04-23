@@ -15,6 +15,36 @@ import Sidebar from "./components/sidebar/Sidebar";
 function App({ filter }) {
   const [count, setCount] = useState(0);
   // localStorage.setItem("dashboard-item", 1);
+
+  const query = window.location.search;
+  console.log(query);
+
+  const params = new URLSearchParams(query);
+  const username = params.get("user");
+  const bb = params.get("bb");
+  const gold = params.get("gold");
+  const ware = params.get("ware");
+  const stock = params.get("stock");
+  const land = params.get("land");
+  const saving = params.get("saving");
+  console.log(gold);
+  console.log(ware);
+  console.log(stock);
+  console.log(land);
+
+  let flag = parseInt(localStorage.getItem("flag")) || 0;
+  console.log(flag);
+  if (flag === 0) {
+    localStorage.setItem("balance", bb);
+    localStorage.setItem("username", username);
+    localStorage.setItem("gold", gold);
+    localStorage.setItem("ware", ware);
+    localStorage.setItem("stock", stock);
+    localStorage.setItem("land", land);
+    localStorage.setItem("saving-goal", saving);
+    localStorage.setItem("flag", 1);
+  }
+
   let component;
   switch (window.location.pathname) {
     case "/":

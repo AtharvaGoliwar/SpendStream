@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ExpenseCard from "./ExpenseCard";
 import PieChart from "./PieChart";
-import data from "../data/assets.json";
+// import data from "../data/assets.json";
 import "./AssetsandGoals.css";
 import Box from "./Box";
 import send from "../assets/send.png";
@@ -110,6 +110,13 @@ export default function AssetsandGoals() {
   date.getMonth() + 1 !== parseInt(localStorage.getItem("curr-month"))
     ? localStorage.setItem("savings", 0)
     : "";
+  let data = [
+    { label: "Gold", value: localStorage.getItem("gold") },
+    { label: "Warehouse", value: localStorage.getItem("ware") },
+    { label: "Stock", value: localStorage.getItem("stock") },
+    { label: "Land", value: localStorage.getItem("land") },
+  ];
+
   return (
     <>
       <div

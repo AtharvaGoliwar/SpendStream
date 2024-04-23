@@ -21,7 +21,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  min-height: 140vh;
+  min-height: 120vh;
   width: 100vw;
   margin:0;
   padding:0;
