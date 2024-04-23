@@ -168,6 +168,19 @@ export default function TransactionRecords() {
                 Shopping
               </div>
             )}
+            {category === "Home" ? (
+              <div
+                className="label"
+                style={{ backgroundColor: "black", color: "white" }}
+                onClick={() => categoryClick("Home")}
+              >
+                Home
+              </div>
+            ) : (
+              <div className="label" onClick={() => categoryClick("Home")}>
+                Home
+              </div>
+            )}
             {category === "Others" ? (
               <div
                 className="label"

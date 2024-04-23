@@ -145,6 +145,11 @@ export default function Input({ date, month, year }) {
                 <a onClick={() => setCategory("Transportation")}>
                   Transportation
                 </a>
+                <a onClick={() => setCategory("Home")}>Home</a>
+                <a onClick={() => setCategory("Salary")}>Salary</a>
+                <a onClick={() => setCategory("E-Commerce")}>E-Commerce</a>
+                <a onClick={() => setCategory("Shop")}>Shop</a>
+                <a onClick={() => setCategory("Credit")}>Credit</a>
                 <a onClick={() => setCategory("Others")}>Others</a>
               </div>
             </div>

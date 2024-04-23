@@ -16,14 +16,7 @@ export default function PieChart({ data }) {
           datasets: [
             {
               data: data.map((data) => data.value),
-              backgroundColor: [
-                "gold",
-                "blue",
-                "green",
-                "red",
-                "gray",
-                "black",
-              ],
+              backgroundColor: ["gold", "blue", "green", "red", "black"],
               borderRadius: 5,
             },
           ],

@@ -42,6 +42,8 @@ export default function Table() {
   let rec = JSON.parse(localStorage.getItem("records") || "[]");
   let data = [];
   let Data = [];
+  let income = [];
+  let Income = [];
   localStorage.setItem("total", 0);
   rec.map((record) =>
     record.month === date.getMonth() + 1
@@ -91,11 +93,80 @@ export default function Table() {
   );
   data.push(parseInt(localStorage.getItem("total")));
   localStorage.setItem("total", 0);
+  rec.map((record) =>
+    record.month === date.getMonth() + 1
+      ? record.type === "Home"
+        ? localStorage.setItem(
+            "total",
+            parseInt(localStorage.getItem("total")) + parseInt(record.value)
+          )
+        : ""
+      : ""
+  );
+
+  data.push(parseInt(localStorage.getItem("total")));
+  localStorage.setItem("total", 0);
+
+  rec.map((record) =>
+    record.month === date.getMonth() + 1
+      ? record.type === "Salary"
+        ? localStorage.setItem(
+            "total",
+            parseInt(localStorage.getItem("total")) + parseInt(record.value)
+          )
+        : ""
+      : ""
+  );
+  income.push(parseInt(localStorage.getItem("total")));
+  localStorage.setItem("total", 0);
+
+  rec.map((record) =>
+    record.month === date.getMonth() + 1
+      ? record.type === "E-Commerce"
+        ? localStorage.setItem(
+            "total",
+            parseInt(localStorage.getItem("total")) + parseInt(record.value)
+          )
+        : ""
+      : ""
+  );
+
+  income.push(parseInt(localStorage.getItem("total")));
+  localStorage.setItem("total", 0);
+
+  rec.map((record) =>
+    record.month === date.getMonth() + 1
+      ? record.type === "Shop"
+        ? localStorage.setItem(
+            "total",
+            parseInt(localStorage.getItem("total")) + parseInt(record.value)
+          )
+        : ""
+      : ""
+  );
+
+  income.push(parseInt(localStorage.getItem("total")));
+  localStorage.setItem("total", 0);
+
+  rec.map((record) =>
+    record.month === date.getMonth() + 1
+      ? record.type === "Credit"
+        ? localStorage.setItem(
+            "total",
+            parseInt(localStorage.getItem("total")) + parseInt(record.value)
+          )
+        : ""
+      : ""
+  );
+
+  income.push(parseInt(localStorage.getItem("total")));
+  localStorage.setItem("total", 0);
   Data = [
     { label: "Food", value: data[0] },
     { label: "Shopping", value: data[1] },
     { label: "Transportation", value: data[2] },
     { label: "Others", value: data[3] },
+    { label: "Home", value: data[4] },
   ];
   return (
     <>

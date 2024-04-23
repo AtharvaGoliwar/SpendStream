@@ -27,6 +27,7 @@
     /* color: white; */
     background: linear-gradient(90deg,#12192C,#062a6e);
     min-width: 80vw;
+    min-height: 150vh;
     /* opacity: 0.8; */
 }
 

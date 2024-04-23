@@ -27,7 +27,7 @@ export default function Sidebar() {
                 id="nav-toggle"
               /> */}
               <a href="#" className="nav__logo">
-                SpendStream
+                BudgIT
               </a>
             </div>
             <a href="#" className="nav_link active desktop_only">

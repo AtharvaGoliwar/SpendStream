@@ -2,7 +2,7 @@ import React from "react";
 import salary from "../assets/salary.png";
 import ecommerce from "../assets/ecommerce.png";
 import shop from "../assets/shop.png";
-import adsense from "../assets/adsense.png";
+import credit from "../assets/credit.png";
 
 export default function IncomeSource() {
   let style = {
@@ -56,6 +56,64 @@ export default function IncomeSource() {
     // justifyContent: "space-between",
     marginBottom: "0.75rem",
   };
+  let rec = JSON.parse(localStorage.getItem("records") || "[]");
+  let date = new Date();
+  let income = [];
+  localStorage.setItem("total", 0);
+  rec.map((record) =>
+    record.month === date.getMonth() + 1
+      ? record.type === "Salary"
+        ? localStorage.setItem(
+            "total",
+            parseInt(localStorage.getItem("total")) + parseInt(record.value)
+          )
+        : ""
+      : ""
+  );
+  income.push(parseInt(localStorage.getItem("total")));
+  localStorage.setItem("total", 0);
+
+  rec.map((record) =>
+    record.month === date.getMonth() + 1
+      ? record.type === "E-Commerce"
+        ? localStorage.setItem(
+            "total",
+            parseInt(localStorage.getItem("total")) + parseInt(record.value)
+          )
+        : ""
+      : ""
+  );
+
+  income.push(parseInt(localStorage.getItem("total")));
+  localStorage.setItem("total", 0);
+
+  rec.map((record) =>
+    record.month === date.getMonth() + 1
+      ? record.type === "Shop"
+        ? localStorage.setItem(
+            "total",
+            parseInt(localStorage.getItem("total")) + parseInt(record.value)
+          )
+        : ""
+      : ""
+  );
+
+  income.push(parseInt(localStorage.getItem("total")));
+  localStorage.setItem("total", 0);
+
+  rec.map((record) =>
+    record.month === date.getMonth() + 1
+      ? record.type === "Credit"
+        ? localStorage.setItem(
+            "total",
+            parseInt(localStorage.getItem("total")) + parseInt(record.value)
+          )
+        : ""
+      : ""
+  );
+
+  income.push(parseInt(localStorage.getItem("total")));
+  localStorage.setItem("total", 0);
   return (
     <div style={style}>
       <div style={style1}>
@@ -68,28 +126,28 @@ export default function IncomeSource() {
           <img src={salary} alt="" style={style7} />
           <div>
             <div style={style5}>Salary</div>
-            <div style={style6}>Rs 13,000</div>
+            <div style={style6}>Rs {income[0]}</div>
           </div>
         </div>
         <div style={style8}>
           <img src={ecommerce} alt="" style={style7} />
           <div>
             <div style={style5}>E-Commerce</div>
-            <div style={style6}>Rs 1,900</div>
+            <div style={style6}>Rs {income[1]}</div>
           </div>
         </div>
         <div style={style8}>
           <img src={shop} alt="" style={style7} />
           <div>
             <div style={style5}>My Shop</div>
-            <div style={style6}>Rs 3,000</div>
+            <div style={style6}>Rs {income[2]}</div>
           </div>
         </div>
         <div style={style8}>
-          <img src={adsense} alt="" style={style7} />
+          <img src={credit} alt="" style={style7} />
           <div>
-            <div style={style5}>Google AdSense</div>
-            <div style={style6}>Rs 100</div>
+            <div style={style5}>Credit</div>
+            <div style={style6}>Rs {income[3]}</div>
           </div>
         </div>
       </div>
