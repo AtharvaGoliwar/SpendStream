@@ -13,7 +13,9 @@ export default function Chatbot() {
               justifyContent: "center",
               width: "50%",
               background: "white",
-              margin: "1rem",
+              //   margin: "1rem",
+              marginBottom: "1rem",
+              marginLeft: "2.5rem",
               //   padding: "1rem",
               borderRadius: "50%",
             }}
@@ -22,6 +24,7 @@ export default function Chatbot() {
               src={chatbot}
               alt=""
               style={{ width: "3vw", margin: "1rem" }}
+              className="img"
             />
           </div>
         </a>
