@@ -36,13 +36,13 @@ export default function Sidebar() {
               </div>
             </a>
             <div
-              className="username"
+              className="username desktop_only"
               style={{ textAlign: "center", marginTop: "1rem" }}
             >
               {localStorage.getItem("username")}
             </div>
-            <br />
-            <br />
+            <br className="desktop_only" />
+            <br className="desktop_only" />
 
             <div className="nav__list">
               <a href="#" class="nav__link mobile_only">

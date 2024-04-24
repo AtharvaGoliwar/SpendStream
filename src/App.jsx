@@ -11,6 +11,7 @@ import Charts from "./components/Charts";
 import Settings from "./components/settings/Settings";
 import { ToastContainer } from "react-toastify";
 import Sidebar from "./components/sidebar/Sidebar";
+import Chatbot from "./components/Chatbot";
 
 function App({ filter }) {
   const [count, setCount] = useState(0);
@@ -71,6 +72,9 @@ function App({ filter }) {
       {/* <TransactionRecords filter={filter} /> */}
       {/* <AssetsandGoals /> */}
       <ToastContainer position="top-right" />
+      <div className="chatbot">
+        <Chatbot />
+      </div>
     </>
   );
 }

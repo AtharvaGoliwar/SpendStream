@@ -67,9 +67,22 @@
   color: #888;
 } */
 
+.chatbot{
+  width: 10vw;
+  position: fixed;
+  bottom: 3rem;
+  right: 1vw;
+}
+
 @media(max-width:600px){
   #root{
     display: flex;
     flex-direction: column;
+  }
+  .chatbot{
+    width: 25vw;
+    position: fixed;
+    bottom: 3rem;
+    right: 1vw;
   }
 }
