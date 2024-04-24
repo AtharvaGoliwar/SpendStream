@@ -6,7 +6,7 @@ export default function Chatbot() {
   return (
     <>
       <div>
-        <a href="#">
+        <a href="https://spendstream.pythonanywhere.com/" target="_blank">
           <div
             style={{
               display: "flex",
