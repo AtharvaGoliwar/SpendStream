@@ -25,7 +25,7 @@ export default function Chatbot() {
             />
           </div>
         </a>
-        <div className="desc">Chat with FinBot</div>
+        <div className="desc">Chat with BudgIT</div>
       </div>
     </>
   );
