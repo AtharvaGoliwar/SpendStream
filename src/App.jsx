@@ -29,6 +29,7 @@ function App({ filter }) {
   const land = params.get("land");
   const saving = params.get("saving");
   const income = params.get("income");
+  const trialFlag = params.get("trial");
   console.log(gold);
   console.log(ware);
   console.log(stock);
@@ -45,7 +46,9 @@ function App({ filter }) {
     localStorage.setItem("land", land);
     localStorage.setItem("saving-goal", saving);
     localStorage.setItem("income-goal", income);
-    localStorage.setItem("flag", 1);
+    if (trialFlag !== "1") {
+      localStorage.setItem("flag", 1);
+    }
   }
 
   let component;
